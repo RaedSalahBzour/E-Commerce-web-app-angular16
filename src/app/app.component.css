@@ -1,0 +1,40 @@
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff; /* white */
+  color: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 0 24px;
+}
+
+/* Logo */
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #3f51b5; /* Material Indigo */
+}
+
+/* Navigation Links */
+.nav-links a {
+  margin-left: 20px;
+  color: #333;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #3f51b5;
+}
+
+/* Active Route Highlight */
+.active-link {
+  color: #3f51b5;
+  font-weight: 600;
+  border-bottom: 2px solid #3f51b5;
+}

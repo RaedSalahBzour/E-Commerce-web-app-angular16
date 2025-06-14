@@ -1,1 +1,51 @@
-<p>product-list works!</p>
+<div class="product-container">
+  <h1 class="section-title">Our Products</h1>
+
+  <div class="filter-bar">
+    <mat-form-field appearance="fill" class="filter-item">
+      <mat-label>Search</mat-label>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Search products..."
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="filter-item">
+      <mat-label>Sort by</mat-label>
+      <mat-select [(value)]="sortBy" (selectionChange)="applySort()">
+        <mat-option value="name">Name</mat-option>
+        <mat-option value="price">Price</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="filter-item">
+      <mat-label>Order</mat-label>
+      <mat-select [(value)]="sortOrder" (selectionChange)="applySort()">
+        <mat-option value="asc">Ascending</mat-option>
+        <mat-option value="desc">Descending </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="product-grid">
+    <mat-card *ngFor="let product of filteredPorducts" class="product-card">
+      <img
+        mat-card-image
+        src="assets/images/{{ product.image_url }}"
+        alt="{{ product.name }}"
+        class="product-image"
+      />
+
+      <mat-card-content>
+        <h2 class="product-title">{{ product.name }}</h2>
+        <p class="product-price">Price: ${{ product.price }}</p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="addToCart(product)">
+          Add to Cart
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
